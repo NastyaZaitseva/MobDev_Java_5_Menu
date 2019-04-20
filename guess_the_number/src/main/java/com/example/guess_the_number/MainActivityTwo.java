@@ -11,32 +11,29 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class Guess_the_number extends AppCompatActivity {
+public class MainActivityTwo extends AppCompatActivity {
+
     TextView tvInfo;
     EditText etInput;
     Button bControl;
     int guess;
     boolean game_finish;
     int nb=0;
-
+    int number=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_guess_the_number);
+        setContentView(R.layout.activity_main_two);
 
         tvInfo=findViewById(R.id.textView);
         etInput=findViewById(R.id.editText);
         bControl=findViewById(R.id.button);
 
-
+        tvInfo.setText(R.string.easy_game);
         guess= (int) (Math.random()*100);
         game_finish=false;
-
-
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -57,18 +54,19 @@ public class Guess_the_number extends AppCompatActivity {
                 return true;
 
             case R.id.new_game:
+                Intent intent=new Intent(this, Guess_the_number.class);
+                startActivity(intent);
+                break;
+
+            case R.id.easy_game:
                 guess= (int) (Math.random()*100);
                 nb=0;
                 bControl.setText(getResources().getString(R.string.input_value));
-                tvInfo.setText(getResources().getString(R.string.try_to_guess));
+                tvInfo.setText(getResources().getString(R.string.easy_game));
                 game_finish=false;
                 etInput.setText("");
                 return true;
 
-            case R.id.easy_game:
-                Intent intent=new Intent(this, MainActivityTwo.class);
-                startActivity(intent);
-                break;
 
 
             default:
@@ -81,36 +79,37 @@ public class Guess_the_number extends AppCompatActivity {
 
 
     @SuppressLint("SetTextI18n")
-        public void onClick(View view) {
+    public void onClick(View view) {
 
-            if (!isAllEditWithText()) {
-    return;
-}
+        if (!isAllEditWithText()) {
+            return;
+        }
 
-//Условия для легкого уровня
-       if ((!game_finish) && (nb==0 )) {
-           int value = Integer.parseInt(etInput.getText().toString());
-           if (value > guess){
-               tvInfo.setText(getResources().getString(R.string.ahead));
-           etInput.setText("");}
-           if (value < guess){
-               tvInfo.setText(getResources().getString(R.string.behind));
-           etInput.setText("");}
-           if (value == guess) {
-               tvInfo.setText(getResources().getString(R.string.hit));
-               bControl.setText(getResources().getString(R.string.play_more));
-               game_finish = true;
+//Условия для сложного уровня
+        if ((!game_finish) && (nb==0 ) && (number<9)) {
+            int value = Integer.parseInt(etInput.getText().toString());
+            if (value > guess){
+                tvInfo.setText(getResources().getString(R.string.ahead));
+                etInput.setText("");}
+            if (value < guess){
+                tvInfo.setText(getResources().getString(R.string.behind));
+                etInput.setText("");}
+            if (value == guess) {
+                tvInfo.setText(getResources().getString(R.string.hit));
+                bControl.setText(getResources().getString(R.string.play_more));
+                game_finish = true;
 
-           }
+            }
+++number;
 
 
-
-       }
+        }
         else {
             guess= (int) (Math.random()*100);
+            number=0;
 
-            bControl.setText(getResources().getString(R.string.input_value));
-            tvInfo.setText(getResources().getString(R.string.try_to_guess));
+            bControl.setText(getResources().getString(R.string.play_more));
+            tvInfo.setText(getResources().getString(R.string.yps));
             game_finish=false;
             etInput.setText("");
         }
@@ -128,6 +127,4 @@ public class Guess_the_number extends AppCompatActivity {
     }
 
 
-    }
-
-
+}

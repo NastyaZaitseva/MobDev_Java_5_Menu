@@ -8,5 +8,6 @@
     <string name="hit">Потрясающе! Вы угадали число!</string>
     <string name="empty">Вы не ввели число!</string>
     <string name="play_more">Хочу еще!</string>
-    <string name="easy_game">Введите число от 1 до 100. У вас есть 15 попыток! Удачи :)</string>
+    <string name="easy_game">Новая игра начата. Введите число от 1 до 100. У вас есть 10 попыток! Удачи :)</string>
+    <string name="yps">Вы проиграли!</string>
 </resources>
