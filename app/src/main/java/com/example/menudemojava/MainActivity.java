@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
     // обработка нажатий
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        int id=item.getItemId();
+
         // TODO Auto-generated method stub
         StringBuilder sb = new StringBuilder();
 
@@ -55,7 +57,16 @@ public class MainActivity extends AppCompatActivity {
         sb.append("\r\n title: " + item.getTitle());
         tv.setText(sb.toString());
 
-        return super.onOptionsItemSelected(item);
+
+
+        switch (id){
+            case R.id.item9:
+                tv.setText("Выход из приложения");
+                finish();
+                return true;
+                default:
+                    return super.onOptionsItemSelected(item);
+        }
     }
 
 }

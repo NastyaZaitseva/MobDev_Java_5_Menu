@@ -32,4 +32,18 @@
             android:title="exit">
         </item>
     </group>
+    <item
+        android:id="@+id/item7"
+        android:title="item7">
+
+    </item>
+    <item
+        android:id="@+id/item8"
+        android:title="item8">
+    </item>
+
+<item
+android:id="@+id/item9"
+android:title="Выход из приложения">
+</item>
 </menu>
