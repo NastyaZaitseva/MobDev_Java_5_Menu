@@ -5,7 +5,8 @@
     <string name="ahead">Загаданное число меньше</string>
     <string name="hint_et">Ваше число</string>
     <string name="behind">Загаданное число больше</string>
-    <string name="hit">Вы угадали число!</string>
+    <string name="hit">Потрясающе! Вы угадали число!</string>
     <string name="empty">Вы не ввели число!</string>
     <string name="play_more">Хочу еще!</string>
+    <string name="easy_game">Введите число от 1 до 100. У вас есть 15 попыток! Удачи :)</string>
 </resources>

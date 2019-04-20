@@ -1,5 +1,6 @@
 package com.example.guess_the_number;
 
+import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,6 +16,8 @@ public class Guess_the_number extends AppCompatActivity {
     Button bControl;
     int guess;
     boolean game_finish;
+    int nb=0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,8 @@ public class Guess_the_number extends AppCompatActivity {
 
         guess= (int) (Math.random()*100);
         game_finish=false;
+
+
 
     }
 
@@ -52,14 +57,21 @@ public class Guess_the_number extends AppCompatActivity {
 
             case R.id.new_game:
                 guess= (int) (Math.random()*100);
-
+                nb=0;
                 bControl.setText(getResources().getString(R.string.input_value));
                 tvInfo.setText(getResources().getString(R.string.try_to_guess));
                 game_finish=false;
                 etInput.setText("");
                 return true;
 
-
+            case R.id.easy_game:
+                guess= (int) (Math.random()*100);
+                nb=1;
+                bControl.setText(getResources().getString(R.string.input_value));
+                tvInfo.setText(getResources().getString( R.string.easy_game));
+                game_finish=false;
+                etInput.setText("");
+                return true;
 
 
             default:
@@ -68,12 +80,15 @@ public class Guess_the_number extends AppCompatActivity {
     }
 
 
+        @SuppressLint("SetTextI18n")
         public void onClick(View view) {
-if (!isAllEditWithText()) {
+
+            if (!isAllEditWithText()) {
     return;
 }
 
-       if (!game_finish) {
+//Условия для легкого уровня
+       if ((!game_finish) && (nb==0 )) {
            int value = Integer.parseInt(etInput.getText().toString());
            if (value > guess){
                tvInfo.setText(getResources().getString(R.string.ahead));
@@ -87,6 +102,9 @@ if (!isAllEditWithText()) {
                game_finish = true;
 
            }
+
+
+
        }
         else {
             guess= (int) (Math.random()*100);
@@ -94,8 +112,13 @@ if (!isAllEditWithText()) {
             bControl.setText(getResources().getString(R.string.input_value));
             tvInfo.setText(getResources().getString(R.string.try_to_guess));
             game_finish=false;
-           etInput.setText("");
+            etInput.setText("");
         }
+
+
+
+
+
 
     }
 
@@ -104,4 +127,7 @@ if (!isAllEditWithText()) {
         return (etInput.getText().length() !=0);
     }
 
+
     }
+
+

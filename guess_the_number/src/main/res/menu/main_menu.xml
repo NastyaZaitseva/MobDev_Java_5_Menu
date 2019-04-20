@@ -5,12 +5,9 @@
 </item>
 
     <item android:id="@+id/easy_game"
-        android:title="Начать новую игру(средний уровень)">
-    </item>
-
-    <item android:id="@+id/complex_game"
         android:title="Начать новую игру(сложный уровень)">
     </item>
+
 
     <item android:id="@+id/close_game"
         android:title="Закрыть">
