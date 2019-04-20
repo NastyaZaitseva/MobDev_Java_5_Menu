@@ -2,6 +2,8 @@ package com.example.guess_the_number;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,7 +31,44 @@ public class Guess_the_number extends AppCompatActivity {
 
     }
 
-    public void onClick(View view) {
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id=item.getItemId();
+
+        // TODO Auto-generated method stub
+
+        switch (id){
+            case R.id.close_game:
+                finish();
+                return true;
+
+            case R.id.new_game:
+                guess= (int) (Math.random()*100);
+
+                bControl.setText(getResources().getString(R.string.input_value));
+                tvInfo.setText(getResources().getString(R.string.try_to_guess));
+                game_finish=false;
+                etInput.setText("");
+                return true;
+
+
+
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
+        public void onClick(View view) {
 if (!isAllEditWithText()) {
     return;
 }
@@ -57,7 +96,7 @@ if (!isAllEditWithText()) {
             game_finish=false;
            etInput.setText("");
         }
-       // etInput.setText("");
+
     }
 
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/new_game"
+    android:title="Начать новую игру(легкий уровень)">
+</item>
+
+    <item android:id="@+id/easy_game"
+        android:title="Начать новую игру(средний уровень)">
+    </item>
+
+    <item android:id="@+id/complex_game"
+        android:title="Начать новую игру(сложный уровень)">
+    </item>
+
+    <item android:id="@+id/close_game"
+        android:title="Закрыть">
+    </item>
+
+</menu>

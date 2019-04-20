@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Угадай число</string>
+    <string name="try_to_guess">Введите число от 1 до 100</string>
+    <string name="input_value">Нажмите</string>
+    <string name="ahead">Загаданное число меньше</string>
+    <string name="hint_et">Ваше число</string>
+    <string name="behind">Загаданное число больше</string>
+    <string name="hit">Вы угадали число!</string>
+    <string name="empty">Вы не ввели число!</string>
+    <string name="play_more">Хочу еще!</string>
+</resources>
